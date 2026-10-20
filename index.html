@@ -135,96 +135,31 @@
             position: relative;
             overflow: hidden;
         }
-        .sugar-section::before {
-            content: '🍎';
-            position: absolute;
-            font-size: 180px;
-            opacity: 0.04;
-            right: -20px;
-            bottom: -30px;
-            pointer-events: none;
-        }
-        .sugar-title {
-            font-size: 26px;
-            background: linear-gradient(135deg, #ffcc00, #ff6b9d);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            margin-bottom: 5px;
-        }
-        .sugar-sub {
-            font-size: 14px;
-            color: #b0a0d0;
-            margin-bottom: 20px;
-        }
-        .sugar-fact {
-            font-size: 16px;
-            color: #e0c3fc;
-            line-height: 1.7;
-            margin-bottom: 18px;
-            padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 14px;
-            border-left: 3px solid #ffcc00;
-            text-align: left;
-        }
+        .sugar-section::before { content: '🍎'; position: absolute; font-size: 180px; opacity: 0.04; right: -20px; bottom: -30px; pointer-events: none; }
+        .sugar-title { font-size: 26px; background: linear-gradient(135deg, #ffcc00, #ff6b9d); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; margin-bottom: 5px; }
+        .sugar-sub { font-size: 14px; color: #b0a0d0; margin-bottom: 20px; }
+        .sugar-fact { font-size: 16px; color: #e0c3fc; line-height: 1.7; margin-bottom: 18px; padding: 12px 16px; background: rgba(255, 255, 255, 0.05); border-radius: 14px; border-left: 3px solid #ffcc00; text-align: left; }
         .sugar-fact strong { color: #ffcc00; }
-        .sugar-characters {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin: 18px 0;
-        }
-        .sugar-char {
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            user-select: none;
-            text-align: center;
-            min-width: 110px;
-        }
-        .sugar-char:hover {
-            background: rgba(255, 204, 0, 0.2);
-            border-color: #ffcc00;
-            transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 10px 25px rgba(255, 204, 0, 0.25);
-        }
+        .sugar-characters { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 18px 0; }
+        .sugar-char { padding: 12px 20px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; cursor: pointer; transition: all 0.3s ease; user-select: none; text-align: center; min-width: 110px; }
+        .sugar-char:hover { background: rgba(255, 204, 0, 0.2); border-color: #ffcc00; transform: translateY(-4px) scale(1.04); box-shadow: 0 10px 25px rgba(255, 204, 0, 0.25); }
         .sugar-char .sc-emoji { font-size: 28px; display: block; margin-bottom: 6px; }
         .sugar-char .sc-name { font-size: 13px; font-weight: 700; color: #ffcc00; }
         .sugar-char .sc-desc { font-size: 11px; color: #b0a0d0; margin-top: 3px; }
-        .sugar-message {
-            min-height: 40px;
-            margin-top: 15px;
-            font-size: 16px;
-            color: #ffcc00;
-            font-weight: 600;
-            transition: all 0.4s ease;
-            line-height: 1.5;
-        }
+        .sugar-message { min-height: 40px; margin-top: 15px; font-size: 16px; color: #ffcc00; font-weight: 600; transition: all 0.4s ease; line-height: 1.5; }
         .sugar-message.pop { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .sugar-quote {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 14px;
-            font-style: italic;
-            color: #d0c0e8;
-            font-size: 15px;
-            line-height: 1.6;
-        }
+        .sugar-quote { margin-top: 20px; padding: 15px; background: rgba(0, 0, 0, 0.2); border-radius: 14px; font-style: italic; color: #d0c0e8; font-size: 15px; line-height: 1.6; }
         .sugar-quote span { color: #ffcc00; font-weight: 700; }
         .sugar-hint { font-size: 13px; color: #8877aa; font-style: italic; margin-top: 12px; }
 
+        /* ===== ТАЙМЕР ===== */
         .timer-section { margin: 30px 0; padding: 20px; background: rgba(0, 0, 0, 0.2); border-radius: 20px; border: 1px solid rgba(255, 204, 0, 0.2); }
         .timer-display { display: flex; justify-content: center; gap: 20px; margin-top: 15px; flex-wrap: wrap; }
         .timer-block { background: rgba(255, 255, 255, 0.08); border-radius: 15px; padding: 15px 20px; min-width: 80px; border: 1px solid rgba(255, 255, 255, 0.1); }
         .timer-num { font-size: 36px; font-weight: 900; color: #ffcc00; line-height: 1; animation: pulse 1s ease-in-out infinite; }
         .timer-label { font-size: 12px; color: #b0a0d0; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .timer-note { font-size: 12px; color: #8877aa; margin-top: 12px; }
+        .timer-celebrate { font-size: 20px; color: #ffcc00; font-weight: 700; margin-top: 15px; min-height: 28px; }
 
         .music-btn { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #ff6b9d, #a855f7); border: none; cursor: pointer; font-size: 26px; z-index: 1000; box-shadow: 0 8px 25px rgba(255, 107, 157, 0.5); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; }
         .music-btn:hover { transform: scale(1.1) rotate(15deg); }
@@ -267,19 +202,22 @@
         <div class="title-block">
             <div class="age-badge">16</div>
             <h1>С Днём Рождения, Лиза!</h1>
-            <p class="subtitle">✨ Сегодня твой день — сияй ярче всех! ✨</p>
+            <p class="subtitle" id="mainSubtitle">✨ Сегодня твой день — сияй ярче всех! ✨</p>
         </div>
 
+        <!-- ===== ТАЙМЕР ДО 22 ОКТЯБРЯ ===== -->
         <div class="timer-section">
-            <h2 style="font-size: 18px; color: #a855f7; margin-bottom: 5px;">⏳ Твой праздник длится</h2>
+            <h2 style="font-size: 18px; color: #a855f7; margin-bottom: 5px;" id="timerTitle">⏳ До твоего 16-летия осталось</h2>
             <div class="timer-display">
                 <div class="timer-block"><div class="timer-num" id="timerDays">00</div><div class="timer-label">Дней</div></div>
                 <div class="timer-block"><div class="timer-num" id="timerHours">00</div><div class="timer-label">Часов</div></div>
                 <div class="timer-block"><div class="timer-num" id="timerMinutes">00</div><div class="timer-label">Минут</div></div>
                 <div class="timer-block"><div class="timer-num" id="timerSeconds">00</div><div class="timer-label">Секунд</div></div>
             </div>
-            <p style="font-size: 12px; color: #8877aa; margin-top: 12px;">С момента твоего 16-летия 🎂</p>
+            <p class="timer-note" id="timerNote">🎂 22 октября — день, когда Лизе исполняется 16!</p>
+            <div class="timer-celebrate" id="timerCelebrate"></div>
         </div>
+        <!-- ===== КОНЕЦ ТАЙМЕРА ===== -->
 
         <div class="card">
             <p>Дорогая <strong style="color:#ffcc00;">Лиза</strong>! 🎂</p>
@@ -349,7 +287,7 @@
             <div class="sugar-sub">Лиза, если ты любишь это аниме — этот блок для тебя!</div>
 
             <div class="sugar-fact">
-                <strong>«Сказка о сахарном яблоке»</strong> (Sugar Apple Fairy Tale) — аниме 2023 года от студии J.C.Staff [citation:3]. В центре сюжета — <strong>Энн Хэлфорд</strong>, юная мастерица, мечтающая получить титул <strong>Мастера Серебряного Сахара</strong>, который присваивается только королевской семьёй [citation:2][citation:6]. Чтобы добраться до столицы и участвовать в ярмарке сладостей, она нанимает <strong>Чалле</strong> — дерзкого фея-воина, который не доверяет людям [citation:2][citation:6]. Это история о мечте, дружбе и преодолении различий между людьми и феями.
+                <strong>«Сказка о сахарном яблоке»</strong> (Sugar Apple Fairy Tale) — аниме 2023 года от студии J.C.Staff. В центре сюжета — <strong>Энн Хэлфорд</strong>, юная мастерица, мечтающая получить титул <strong>Мастера Серебряного Сахара</strong>, который присваивается только королевской семьёй. Чтобы добраться до столицы и участвовать в ярмарке сладостей, она нанимает <strong>Чалле</strong> — дерзкого фея-воина, который не доверяет людям. Это история о мечте, дружбе и преодолении различий между людьми и феями.
             </div>
 
             <div class="sugar-fact">
@@ -382,7 +320,7 @@
             <div class="sugar-message" id="sugarMessage"></div>
 
             <div class="sugar-quote">
-                <span>«Сахарное яблоко — это дерево предательства»</span> — название одной из серий [citation:7]. Лиза, пусть в твоём году будет больше сладкого, чем горького, и пусть рядом всегда будут те, кому можно доверять! 🍬💕
+                <span>«Сахарное яблоко — это дерево предательства»</span> — название одной из серий. Лиза, пусть в твоём году будет больше сладкого, чем горького, и пусть рядом всегда будут те, кому можно доверять! 🍬💕
             </div>
 
             <div class="sugar-hint">Нажимай на персонажей — и узнавай их секреты 💫</div>
@@ -712,22 +650,86 @@
             playPopSound();
         }
 
-        // ========== ТАЙМЕР ==========
-        const birthdayDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 0, 0, 0);
+        // ========== ТАЙМЕР ДО 22 ОКТЯБРЯ ==========
+        // Дата 16-летия Лизы: 22 октября
+        // Год определяется автоматически: если 22 октября уже прошло в этом году,
+        // значит день рождения был в этом году, и мы считаем "праздник длится".
+        const BIRTH_MONTH = 9;  // октябрь (0 = январь)
+        const BIRTH_DAY = 22;
+
+        function getBirthdayDate() {
+            const now = new Date();
+            let year = now.getFullYear();
+            let birthday = new Date(year, BIRTH_MONTH, BIRTH_DAY, 0, 0, 0);
+            // Если день рождения ещё не наступил в этом году — считаем до него
+            // Если уже наступил — считаем от него (праздник длится)
+            if (now < birthday) {
+                return { date: birthday, mode: 'before' };
+            }
+            return { date: birthday, mode: 'after' };
+        }
 
         function updateTimer() {
             const now = new Date();
-            let diff = now - birthdayDate;
-            if (diff < 0) diff = 0;
-            document.getElementById('timerDays').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
-            document.getElementById('timerHours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
-            document.getElementById('timerMinutes').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
-            document.getElementById('timerSeconds').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+            const { date: birthday, mode } = getBirthdayDate();
+            const titleEl = document.getElementById('timerTitle');
+            const noteEl = document.getElementById('timerNote');
+            const celebrateEl = document.getElementById('timerCelebrate');
+            const subtitleEl = document.getElementById('mainSubtitle');
+
+            if (mode === 'before') {
+                // Обратный отсчёт до дня рождения
+                const diff = birthday - now;
+                const days = Math.floor(diff / 86400000);
+                const hours = Math.floor((diff % 86400000) / 3600000);
+                const minutes = Math.floor((diff % 3600000) / 60000);
+                const seconds = Math.floor((diff % 60000) / 1000);
+
+                document.getElementById('timerDays').textContent = String(days).padStart(2, '0');
+                document.getElementById('timerHours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('timerMinutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('timerSeconds').textContent = String(seconds).padStart(2, '0');
+
+                titleEl.textContent = '⏳ До твоего 16-летия осталось';
+                noteEl.textContent = '🎂 22 октября — день, когда Лизе исполняется 16!';
+                celebrateEl.textContent = '';
+                subtitleEl.textContent = '✨ Совсем скоро твой день — сияй ярче всех! ✨';
+            } else {
+                // Праздник уже наступил — считаем, сколько длится
+                const diff = now - birthday;
+                const days = Math.floor(diff / 86400000);
+                const hours = Math.floor((diff % 86400000) / 3600000);
+                const minutes = Math.floor((diff % 3600000) / 60000);
+                const seconds = Math.floor((diff % 60000) / 1000);
+
+                document.getElementById('timerDays').textContent = String(days).padStart(2, '0');
+                document.getElementById('timerHours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('timerMinutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('timerSeconds').textContent = String(seconds).padStart(2, '0');
+
+                titleEl.textContent = '🎉 Твой праздник длится уже';
+                noteEl.textContent = '🎂 22 октября — твой день рождения!';
+                subtitleEl.textContent = '🎉 С Днём Рождения, Лиза! 🎉';
+
+                if (days === 0) {
+                    celebrateEl.textContent = '🎊 Сегодня твой день! С праздником, Лиза! 🎊';
+                } else {
+                    celebrateEl.textContent = `🎊 С момента 16-летия прошло ${days} ${getDayWord(days)}! 🎊`;
+                }
+            }
         }
+
+        function getDayWord(n) {
+            if (n % 10 === 1 && n % 100 !== 11) return 'день';
+            if (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) return 'дня';
+            return 'дней';
+        }
+
         updateTimer();
         setInterval(updateTimer, 1000);
+        // ========== КОНЕЦ ТАЙМЕРА ==========
 
-        // ========== ОБРАТНЫЙ ОТСЧЁТ ==========
+        // ========== ОБРАТНЫЙ ОТСЧЁТ ДО КОНЦА ДНЯ ==========
         function updateCountdown() {
             const now = new Date();
             const end = new Date(now); end.setHours(23, 59, 59, 999);
@@ -784,7 +786,7 @@
             setTimeout(generateCompliment, 800);
         });
 
-        console.log('🎉 С Днём Рождения, Лиза! 🎉');
+        console.log('🎉 С Днём Рождения, Лиза! 22 октября — 16 лет! 🎉');
         console.log('🎸 Нервы — навсегда в сердце! 🎸');
         console.log('🍎 Сказка о сахарном яблоке — сладкая история! 🍬');
     </script>
