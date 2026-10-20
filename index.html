@@ -109,17 +109,34 @@
         .quality-tag:hover { background: rgba(255, 107, 157, 0.4); border-color: #ff6b9d; transform: scale(1.1); color: #fff; }
 
         /* ===== БЛОК НЕРВЫ ===== */
-        .nervy-section {
+        .nervy-section { margin: 40px 0; padding: 30px 20px; background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(168, 85, 247, 0.08)); border: 1px solid rgba(255, 107, 157, 0.3); border-radius: 30px; position: relative; overflow: hidden; }
+        .nervy-section::before { content: '🎸'; position: absolute; font-size: 180px; opacity: 0.04; right: -20px; bottom: -30px; pointer-events: none; }
+        .nervy-title { font-size: 26px; background: linear-gradient(135deg, #ff6b9d, #ffcc00); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; margin-bottom: 5px; }
+        .nervy-sub { font-size: 14px; color: #b0a0d0; margin-bottom: 20px; }
+        .nervy-fact { font-size: 16px; color: #e0c3fc; line-height: 1.7; margin-bottom: 18px; padding: 12px 16px; background: rgba(255, 255, 255, 0.05); border-radius: 14px; border-left: 3px solid #ff6b9d; text-align: left; }
+        .nervy-fact strong { color: #ffcc00; }
+        .nervy-songs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 18px 0; }
+        .nervy-song { padding: 10px 18px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 30px; font-size: 14px; color: #f0e6ff; cursor: pointer; transition: all 0.3s ease; user-select: none; }
+        .nervy-song:hover { background: rgba(255, 107, 157, 0.3); border-color: #ff6b9d; transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3); }
+        .nervy-song.played { background: rgba(255, 204, 0, 0.2); border-color: #ffcc00; color: #ffcc00; }
+        .nervy-hint { font-size: 13px; color: #8877aa; font-style: italic; margin-top: 12px; }
+        .nervy-message { min-height: 40px; margin-top: 15px; font-size: 17px; color: #ffcc00; font-weight: 600; transition: all 0.4s ease; }
+        .nervy-message.pop { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .nervy-quote { margin-top: 20px; padding: 15px; background: rgba(0, 0, 0, 0.2); border-radius: 14px; font-style: italic; color: #d0c0e8; font-size: 15px; line-height: 1.6; }
+        .nervy-quote span { color: #ff6b9d; font-weight: 700; }
+
+        /* ===== БЛОК СКАЗКА О САХАРНОМ ЯБЛОКЕ ===== */
+        .sugar-section {
             margin: 40px 0;
             padding: 30px 20px;
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(168, 85, 247, 0.08));
-            border: 1px solid rgba(255, 107, 157, 0.3);
+            background: linear-gradient(135deg, rgba(255, 204, 0, 0.08), rgba(255, 107, 157, 0.06));
+            border: 1px solid rgba(255, 204, 0, 0.25);
             border-radius: 30px;
             position: relative;
             overflow: hidden;
         }
-        .nervy-section::before {
-            content: '🎸';
+        .sugar-section::before {
+            content: '🍎';
             position: absolute;
             font-size: 180px;
             opacity: 0.04;
@@ -127,21 +144,21 @@
             bottom: -30px;
             pointer-events: none;
         }
-        .nervy-title {
+        .sugar-title {
             font-size: 26px;
-            background: linear-gradient(135deg, #ff6b9d, #ffcc00);
+            background: linear-gradient(135deg, #ffcc00, #ff6b9d);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
             margin-bottom: 5px;
         }
-        .nervy-sub {
+        .sugar-sub {
             font-size: 14px;
             color: #b0a0d0;
             margin-bottom: 20px;
         }
-        .nervy-fact {
+        .sugar-fact {
             font-size: 16px;
             color: #e0c3fc;
             line-height: 1.7;
@@ -149,57 +166,48 @@
             padding: 12px 16px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 14px;
-            border-left: 3px solid #ff6b9d;
+            border-left: 3px solid #ffcc00;
             text-align: left;
         }
-        .nervy-fact strong { color: #ffcc00; }
-        .nervy-songs {
+        .sugar-fact strong { color: #ffcc00; }
+        .sugar-characters {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             margin: 18px 0;
         }
-        .nervy-song {
-            padding: 10px 18px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 30px;
-            font-size: 14px;
-            color: #f0e6ff;
+        .sugar-char {
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
             user-select: none;
+            text-align: center;
+            min-width: 110px;
         }
-        .nervy-song:hover {
-            background: rgba(255, 107, 157, 0.3);
-            border-color: #ff6b9d;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
-        }
-        .nervy-song.played {
+        .sugar-char:hover {
             background: rgba(255, 204, 0, 0.2);
             border-color: #ffcc00;
-            color: #ffcc00;
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 10px 25px rgba(255, 204, 0, 0.25);
         }
-        .nervy-hint {
-            font-size: 13px;
-            color: #8877aa;
-            font-style: italic;
-            margin-top: 12px;
-        }
-        .nervy-message {
+        .sugar-char .sc-emoji { font-size: 28px; display: block; margin-bottom: 6px; }
+        .sugar-char .sc-name { font-size: 13px; font-weight: 700; color: #ffcc00; }
+        .sugar-char .sc-desc { font-size: 11px; color: #b0a0d0; margin-top: 3px; }
+        .sugar-message {
             min-height: 40px;
             margin-top: 15px;
-            font-size: 17px;
+            font-size: 16px;
             color: #ffcc00;
             font-weight: 600;
             transition: all 0.4s ease;
+            line-height: 1.5;
         }
-        .nervy-message.pop {
-            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .nervy-quote {
+        .sugar-message.pop { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .sugar-quote {
             margin-top: 20px;
             padding: 15px;
             background: rgba(0, 0, 0, 0.2);
@@ -209,10 +217,8 @@
             font-size: 15px;
             line-height: 1.6;
         }
-        .nervy-quote span {
-            color: #ff6b9d;
-            font-weight: 700;
-        }
+        .sugar-quote span { color: #ffcc00; font-weight: 700; }
+        .sugar-hint { font-size: 13px; color: #8877aa; font-style: italic; margin-top: 12px; }
 
         .timer-section { margin: 30px 0; padding: 20px; background: rgba(0, 0, 0, 0.2); border-radius: 20px; border: 1px solid rgba(255, 204, 0, 0.2); }
         .timer-display { display: flex; justify-content: center; gap: 20px; margin-top: 15px; flex-wrap: wrap; }
@@ -243,6 +249,7 @@
             .timer-block { padding: 10px 12px; min-width: 60px; }
             .music-btn { width: 50px; height: 50px; font-size: 22px; }
             .nervy-title { font-size: 20px; }
+            .sugar-title { font-size: 20px; }
         }
 
         .flash { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; opacity: 0; pointer-events: none; z-index: 9999; transition: opacity 0.15s ease; }
@@ -310,11 +317,11 @@
             <div class="nervy-sub">Лиза, этот блок — специально для тебя, если ты любишь эту группу</div>
 
             <div class="nervy-fact">
-                <strong>«Нервы»</strong> — украинская рок-группа, основанная Евгением Мильковским в 2010 году в Киеве [citation:3][citation:30]. Их песни — это искренние истории о любви, дружбе и внутренних переживаниях, которые нашли отклик у миллионов слушателей [citation:30]. За годы существования группа выпустила семь студийных альбомов и получила номинацию на Премию МУЗ-ТВ в категории «Прорыв года» [citation:3].
+                <strong>«Нервы»</strong> — украинская рок-группа, основанная Евгением Мильковским в 2010 году в Киеве. Их песни — это искренние истории о любви, дружбе и внутренних переживаниях, которые нашли отклик у миллионов слушателей. За годы существования группа выпустила семь студийных альбомов и получила номинацию на Премию МУЗ-ТВ в категории «Прорыв года».
             </div>
 
             <div class="nervy-fact">
-                <strong>Любимые хиты</strong>, которые знают наизусть: «Батареи», «Кофе — мой друг», «Вороны», «Зажигалки», «Самый дорогой человек», «Так как надо» [citation:2][citation:26]. Нажми на любую песню ниже — и получишь строчку из неё!
+                <strong>Любимые хиты</strong>, которые знают наизусть: «Батареи», «Кофе — мой друг», «Вороны», «Зажигалки», «Самый дорогой человек», «Так как надо». Нажми на любую песню ниже — и получишь строчку из неё!
             </div>
 
             <div class="nervy-songs" id="nervySongs">
@@ -329,12 +336,58 @@
             <div class="nervy-message" id="nervyMessage"></div>
 
             <div class="nervy-quote">
-                <span>«Если моя музыка не в моде — значит, я её правильно сочиняю»</span> — строчка из песни «Так как надо» [citation:16]. Лиза, пусть твой год будет именно таким: настоящим, как музыка «Нервов», и правильным — так, как надо! 💫
+                <span>«Если моя музыка не в моде — значит, я её правильно сочиняю»</span> — строчка из песни «Так как надо». Лиза, пусть твой год будет именно таким: настоящим, как музыка «Нервов», и правильным — так, как надо! 💫
             </div>
 
             <div class="nervy-hint">Нажимай на песни — и лови строчки 💕</div>
         </div>
         <!-- ===== КОНЕЦ БЛОКА НЕРВЫ ===== -->
+
+        <!-- ===== БЛОК СКАЗКА О САХАРНОМ ЯБЛОКЕ ===== -->
+        <div class="sugar-section">
+            <div class="sugar-title">🍎 Для фанатов «Сказки о сахарном яблоке» 🍬</div>
+            <div class="sugar-sub">Лиза, если ты любишь это аниме — этот блок для тебя!</div>
+
+            <div class="sugar-fact">
+                <strong>«Сказка о сахарном яблоке»</strong> (Sugar Apple Fairy Tale) — аниме 2023 года от студии J.C.Staff [citation:3]. В центре сюжета — <strong>Энн Хэлфорд</strong>, юная мастерица, мечтающая получить титул <strong>Мастера Серебряного Сахара</strong>, который присваивается только королевской семьёй [citation:2][citation:6]. Чтобы добраться до столицы и участвовать в ярмарке сладостей, она нанимает <strong>Чалле</strong> — дерзкого фея-воина, который не доверяет людям [citation:2][citation:6]. Это история о мечте, дружбе и преодолении различий между людьми и феями.
+            </div>
+
+            <div class="sugar-fact">
+                <strong>Нажми на персонажа</strong>, чтобы узнать о нём чуть больше:
+            </div>
+
+            <div class="sugar-characters">
+                <div class="sugar-char" onclick="sugarCharClick(this, 'Энн Хэлфорд', 'Талантливая кондитер, мечтающая стать Мастером Серебряного Сахара. Добрая, упорная и немного наивная.')">
+                    <span class="sc-emoji">👧</span>
+                    <span class="sc-name">Энн</span>
+                    <span class="sc-desc">Мастерица</span>
+                </div>
+                <div class="sugar-char" onclick="sugarCharClick(this, 'Чалле', 'Фея-воин, которого Энн наняла для защиты. Сначала холоден и недоверчив к людям, но постепенно меняется.')">
+                    <span class="sc-emoji">🧚</span>
+                    <span class="sc-name">Чалле</span>
+                    <span class="sc-desc">Фей-воин</span>
+                </div>
+                <div class="sugar-char" onclick="sugarCharClick(this, 'Митрил', 'Маленькая фея, которую Энн спасла. Становится её верным другом и спутником.')">
+                    <span class="sc-emoji">🧚‍♀️</span>
+                    <span class="sc-name">Митрил</span>
+                    <span class="sc-desc">Фея</span>
+                </div>
+                <div class="sugar-char" onclick="sugarCharClick(this, 'Джонас', 'Друг детства Энн. Его поступки не всегда честны, но он играет важную роль в её пути.')">
+                    <span class="sc-emoji">🧑</span>
+                    <span class="sc-name">Джонас</span>
+                    <span class="sc-desc">Друг детства</span>
+                </div>
+            </div>
+
+            <div class="sugar-message" id="sugarMessage"></div>
+
+            <div class="sugar-quote">
+                <span>«Сахарное яблоко — это дерево предательства»</span> — название одной из серий [citation:7]. Лиза, пусть в твоём году будет больше сладкого, чем горького, и пусть рядом всегда будут те, кому можно доверять! 🍬💕
+            </div>
+
+            <div class="sugar-hint">Нажимай на персонажей — и узнавай их секреты 💫</div>
+        </div>
+        <!-- ===== КОНЕЦ БЛОКА СКАЗКА О САХАРНОМ ЯБЛОКЕ ===== -->
 
         <div class="candles-section">
             <h2 style="font-size:24px; color:#ffcc00; margin-bottom:10px;">🕯️ Задуй свечи! 🕯️</h2>
@@ -517,7 +570,7 @@
             playCelebrationSound();
         }
 
-        // ========== НЕРВЫ — КЛИК ПО ПЕСНЕ ==========
+        // ========== НЕРВЫ ==========
         function nervySongClick(el, songName, quote) {
             el.classList.add('played');
             const msg = document.getElementById('nervyMessage');
@@ -527,14 +580,17 @@
             msg.classList.add('pop');
             playPopSound();
             if (navigator.vibrate) navigator.vibrate(20);
-            // Небольшое конфетти
-            for (let i = 0; i < 8; i++) {
-                const c = document.createElement('div');
-                c.className = 'confetti';
-                c.style.cssText = `left:${Math.random()*100}%; width:${Math.random()*8+4}px; height:${Math.random()*8+4}px; background:${['#ff6b9d','#ffcc00','#a855f7'][Math.floor(Math.random()*3)]}; border-radius:50%; animation-duration:${Math.random()*1.5+1}s; position:fixed; top:-10px; z-index:100; pointer-events:none;`;
-                document.body.appendChild(c);
-                setTimeout(() => c.remove(), 2500);
-            }
+        }
+
+        // ========== СКАЗКА О САХАРНОМ ЯБЛОКЕ ==========
+        function sugarCharClick(el, name, desc) {
+            const msg = document.getElementById('sugarMessage');
+            msg.textContent = name + ': ' + desc;
+            msg.classList.remove('pop');
+            void msg.offsetWidth;
+            msg.classList.add('pop');
+            playPopSound();
+            if (navigator.vibrate) navigator.vibrate(20);
         }
 
         // ========== СЕРДЕЧКИ ==========
@@ -730,6 +786,7 @@
 
         console.log('🎉 С Днём Рождения, Лиза! 🎉');
         console.log('🎸 Нервы — навсегда в сердце! 🎸');
+        console.log('🍎 Сказка о сахарном яблоке — сладкая история! 🍬');
     </script>
 </body>
 </html>
