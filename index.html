@@ -1,136 +1,1107 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Поздравление для Лизы!</title>
+    <title>🎉 С Днём Рождения, Лиза! 16 лет 🎉</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        * {
             margin: 0;
-            padding: 20px;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a0033, #330066, #1a0033);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+            position: relative;
+        }
+
+        /* Звёздное небо */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
             background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Летающие шарики */
+        .balloon {
+            position: fixed;
+            font-size: 40px;
+            animation: floatUp 8s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+            filter: drop-shadow(0 0 10px rgba(255,100,200,0.5));
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Конфетти */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            z-index: 1;
+            pointer-events: none;
+            animation: confettiFall linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Основной контент */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
             text-align: center;
         }
-        
+
+        /* Заголовок */
+        .title-block {
+            margin-bottom: 30px;
+        }
+
+        .age-badge {
+            display: inline-block;
+            font-size: 100px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff6b9d, #ffcc00, #ff6b9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+            animation: pulse 2s ease-in-out infinite;
+            line-height: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
         h1 {
-            color: #e74c3c;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-size: 48px;
+            background: linear-gradient(135deg, #ff6b9d, #ffcc00, #a855f7, #ff6b9d);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease infinite;
+            margin: 10px 0;
+            font-weight: 900;
+            letter-spacing: 2px;
         }
-        
-        .anime-character {
-            font-style: italic;
-            color: #8e44ad;
-            font-weight: bold;
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
-        
-        .message {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin: 20px 0;
-            text-align: left;
-            padding: 0 20px;
+
+        .subtitle {
+            font-size: 20px;
+            color: #e0c3fc;
+            margin-top: 10px;
+            animation: fadeInUp 1s ease;
         }
-        
-        .gallery {
+
+        /* Открытка */
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            padding: 35px 30px;
+            margin: 30px 0;
+            box-shadow: 0 20px 60px rgba(168, 85, 247, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.05);
+            animation: fadeInUp 1.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,157,0.15), transparent 60%);
+            animation: rotateGlow 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .card p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #f0e6ff;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .heart {
+            color: #ff6b9d;
+            display: inline-block;
+            animation: heartbeat 1s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.3); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.2); }
+        }
+
+        /* Пожелания в виде карточек */
+        .wishes {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            gap: 18px;
             margin: 30px 0;
         }
-        
-        .gallery img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 3px solid #3498db;
+
+        .wish-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 20px 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            background: rgba(255, 107, 157, 0.15);
+            border-color: rgba(255, 107, 157, 0.5);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.3);
+        }
+
+        .wish-card .emoji {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 10px;
             transition: transform 0.3s ease;
         }
-        
-        .gallery img:hover {
-            transform: scale(1.05);
+
+        .wish-card:hover .emoji {
+            transform: scale(1.3) rotate(10deg);
         }
-        
-        .science-quote {
-            background: #f8f9fa;
-            border-left: 5px solid #e74c3c;
-            padding: 15px;
+
+        .wish-card .wish-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffcc00;
+            margin-bottom: 6px;
+        }
+
+        .wish-card .wish-text {
+            font-size: 13px;
+            color: #d0c0e8;
+            line-height: 1.5;
+        }
+
+        /* Кнопка открытия сюрприза */
+        .surprise-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, #ff6b9d, #a855f7);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
             margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        .surprise-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 45px rgba(255, 107, 157, 0.6);
+        }
+
+        .surprise-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .surprise-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        /* Скрытое сообщение */
+        .hidden-message {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease, margin 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            margin: 0;
+        }
+
+        .hidden-message.show {
+            max-height: 500px;
+            opacity: 1;
+            margin: 20px 0;
+        }
+
+        .hidden-message .card {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(168, 85, 247, 0.15));
+            border-color: rgba(255, 204, 0, 0.4);
+        }
+
+        /* Свечи */
+        .candles-section {
+            margin: 40px 0 20px;
+        }
+
+        .cake {
+            font-size: 80px;
+            display: inline-block;
+            animation: cakeBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes cakeBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .candles {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .candle {
+            font-size: 30px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            animation: flicker 0.5s ease-in-out infinite alternate;
+            user-select: none;
+            filter: drop-shadow(0 0 8px rgba(255, 200, 0, 0.8));
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-2deg); }
+            100% { transform: scale(1.1) rotate(2deg); }
+        }
+
+        .candle.blown {
+            animation: none;
+            filter: grayscale(1) brightness(0.5);
+            transform: scale(0.9);
+            cursor: default;
+        }
+
+        .candle-hint {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #b0a0d0;
             font-style: italic;
-            border-radius: 0 10px 10px 0;
         }
-        
-        .signature {
-            text-align: right;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-top: 30px;
-            font-size: 1.1em;
+
+        /* Прогресс-бар свечей */
+        .progress-container {
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto 0;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
         }
-        
-        .decoration {
-            font-size: 2em;
-            margin: 10px 0;
-            color: #e74c3c;
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff6b9d, #ffcc00);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .all-blown {
+            font-size: 22px;
+            color: #ffcc00;
+            font-weight: 700;
+            margin-top: 15px;
+            min-height: 30px;
+            transition: all 0.5s ease;
+        }
+
+        .all-blown.visible {
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Слайдер с фото-заглушками */
+        .gallery {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 20px 5px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #ff6b9d transparent;
+        }
+
+        .gallery::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .gallery::-webkit-scrollbar-thumb {
+            background: #ff6b9d;
+            border-radius: 10px;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255,107,157,0.2), rgba(168,85,247,0.2));
+            border: 2px solid rgba(255,255,255,0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            border-color: #ff6b9d;
+        }
+
+        .gallery-item .g-emoji {
+            font-size: 50px;
+            margin-bottom: 8px;
+        }
+
+        .gallery-item .g-text {
+            font-size: 13px;
+            color: #d0c0e8;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        /* Секция с музыкой / интерактивом */
+        .interactive-section {
+            margin: 30px 0;
+        }
+
+        .click-counter {
+            font-size: 18px;
+            color: #ffcc00;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+
+        .click-btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, #ffcc00, #ff6b9d);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4);
+            transition: all 0.2s ease;
+            animation: pulseBtn 2s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0%, 100% { box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4); }
+            50% { box-shadow: 0 8px 45px rgba(255, 204, 0, 0.8); }
+        }
+
+        .click-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Подвал */
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #8877aa;
+            animation: fadeInUp 2s ease;
+        }
+
+        .footer .big-love {
+            font-size: 24px;
+            color: #ff6b9d;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Адаптив */
+        @media (max-width: 600px) {
+            .age-badge { font-size: 70px; }
+            h1 { font-size: 32px; }
+            .card { padding: 25px 18px; }
+            .card p { font-size: 16px; }
+            .subtitle { font-size: 16px; }
+            .surprise-btn { padding: 15px 35px; font-size: 17px; }
+            .cake { font-size: 60px; }
+            .wishes { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .wish-card .emoji { font-size: 32px; }
+        }
+
+        /* Вспышка при конфетти */
+        .flash {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: opacity 0.15s ease;
+        }
+
+        .flash.active {
+            opacity: 0.8;
+        }
+
+        /* Таймер обратного отсчёта */
+        .countdown {
+            font-size: 15px;
+            color: #b0a0d0;
+            margin-top: 8px;
         }
     </style>
 </head>
 <body>
+
+    <!-- Звёзды -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Вспышка -->
+    <div class="flash" id="flash"></div>
+
+    <!-- Конфетти и шарики генерируются JS -->
+
     <div class="container">
-        <div class="decoration">⚗️🎉🌟</div>
-        <h1>Поздравляю, Лиза!</h1>
-        
-        <div class="message">
-            <p>Дорогая Лиза!</p>
-            
-            <p>В этот особенный день я хочу поздравить тебя словами, вдохновлёнными духом научных открытий из <span class="anime-character">Доктора Стоуна</span>!</p>
-            
-            <div class="science-quote">
-                "10 миллиардов процентов уверен, что твой год будет потрясающим! Ведь как говорил Сэнку: 'Наука - это круто!'"
+
+        <!-- Заголовок -->
+        <div class="title-block">
+            <div class="age-badge">16</div>
+            <h1>С Днём Рождения, Лиза!</h1>
+            <p class="subtitle">✨ Сегодня твой день — сияй ярче всех! ✨</p>
+        </div>
+
+        <!-- Основная открытка -->
+        <div class="card">
+            <p>
+                Дорогая <strong style="color:#ffcc00;">Лиза</strong>! 🎂
+            </p>
+            <p>
+                Поздравляем тебя с <span style="color:#ff6b9d; font-weight:700;">16-летием</span>! 
+                Это волшебный возраст — время мечтать, творить и открывать новое. 
+                Пусть каждый день приносит радость, а все желания обязательно сбудутся! <span class="heart">💖</span>
+            </p>
+            <p>
+                Ты — <strong style="color:#a855f7;">удивительная</strong>, 
+                <strong style="color:#ff6b9d;">талантливая</strong> и 
+                <strong style="color:#ffcc00;">неповторимая</strong>! 
+                Оставайся такой же искренней, смелой и жизнерадостной!
+            </p>
+            <p style="font-size:22px; margin-top:20px;">
+                🎉 Счастья, любви и исполнения самых заветных желаний! 🎉
+            </p>
+        </div>
+
+        <!-- Пожелания -->
+        <div class="wishes">
+            <div class="wish-card" onclick="showWish(this)">
+                <span class="emoji">🌟</span>
+                <div class="wish-title">Мечтай смело</div>
+                <div class="wish-text">Пусть самые смелые мечты становятся реальностью</div>
             </div>
-            
-            <p>Пусть твоя жизнь будет полна удивительных открытий, как мир, который возрождали Сэнку и его друзья. Пусть каждый день приносит новые знания и радостные моменты!</p>
-            
-            <p>Желаю тебе быть такой же целеустремлённой, как Сэнку в своих экспериментах, такой же сильной, как Кохаку, и такой же находчивой, как Хром!</p>
+            <div class="wish-card" onclick="showWish(this)">
+                <span class="emoji">💫</span>
+                <div class="wish-title">Сияй ярко</div>
+                <div class="wish-text">Ты звезда, которая освещает всё вокруг</div>
+            </div>
+            <div class="wish-card" onclick="showWish(this)">
+                <span class="emoji">🚀</span>
+                <div class="wish-title">Лети вперёд</div>
+                <div class="wish-text">Новые вершины ждут тебя — покоряй их!</div>
+            </div>
+            <div class="wish-card" onclick="showWish(this)">
+                <span class="emoji">🌈</span>
+                <div class="wish-title">Будь счастлива</div>
+                <div class="wish-text">Каждый день — как радуга после дождя</div>
+            </div>
+            <div class="wish-card" onclick="showWish(this)">
+                <span class="emoji">💖</span>
+                <div class="wish-title">Люби и будь любима</div>
+                <div class="wish-text">Окружай себя людьми, которые ценят тебя</div>
+            </div>
+            <div class="wish-card" onclick="showWish(this)">
+                <span class="emoji">🎨</span>
+                <div class="wish-title">Твори</div>
+                <div class="wish-text">Создавай, вдохновляй и удивляй этот мир</div>
+            </div>
         </div>
-        
+
+        <!-- Свечи -->
+        <div class="candles-section">
+            <h2 style="font-size:24px; color:#ffcc00; margin-bottom:10px;">🕯️ Задуй свечи! 🕯️</h2>
+            <div class="cake">🎂</div>
+            <div class="candles" id="candles">
+                <!-- Свечи генерируются JS -->
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="all-blown" id="allBlown"></div>
+            <p class="candle-hint">Нажимай на огоньки, чтобы задуть все свечи 🔥</p>
+        </div>
+
+        <!-- Кнопка сюрприза -->
+        <button class="surprise-btn" id="surpriseBtn" onclick="revealSurprise()">
+            🎁 Открыть сюрприз 🎁
+        </button>
+
+        <!-- Скрытое сообщение -->
+        <div class="hidden-message" id="hiddenMessage">
+            <div class="card" style="border-color: #ffcc00;">
+                <p style="font-size: 24px; color: #ffcc00; font-weight: 700;">
+                    ✨ Сюрприз! ✨
+                </p>
+                <p>
+                    Лиза, ты — <strong style="color:#ff6b9d;">лучшая</strong>! 
+                    Пусть этот год будет полон <strong style="color:#a855f7;">незабываемых моментов</strong>, 
+                    <strong style="color:#ffcc00;">верных друзей</strong> и 
+                    <strong style="color:#ff6b9d;">огромного счастья</strong>!
+                </p>
+                <p style="font-size: 28px; margin-top: 15px;">
+                    🎊💕🎊
+                </p>
+                <p style="font-size: 18px; color: #d0c0e8;">
+                    Ты заслуживаешь всего самого лучшего в этом мире! 
+                    Верь в себя и свои силы — у тебя всё получится! 💪
+                </p>
+                <p style="font-size: 16px; margin-top: 15px; color: #b0a0d0;">
+                    С любовью и наилучшими пожеланиями ❤️
+                </p>
+            </div>
+        </div>
+
+        <!-- Галерея -->
+        <h2 style="font-size: 22px; color: #a855f7; margin: 30px 0 10px;">📸 Моменты счастья 📸</h2>
         <div class="gallery">
-            <!-- Замените src на реальные URL изображений из аниме -->
-            <img src="tenli.jpg">
-            <img src="xeno.jpg" >
-            <img src="Senky.jpg">
-            <img src="gen.jpg">
+            <div class="gallery-item" onclick="galleryReaction(this, 'Улыбка! 😊')">
+                <span class="g-emoji">😊</span>
+                <span class="g-text">Улыбка</span>
+            </div>
+            <div class="gallery-item" onclick="galleryReaction(this, 'Друзья! 👯')">
+                <span class="g-emoji">👯</span>
+                <span class="g-text">Друзья</span>
+            </div>
+            <div class="gallery-item" onclick="galleryReaction(this, 'Приключения! 🌍')">
+                <span class="g-emoji">🌍</span>
+                <span class="g-text">Приключения</span>
+            </div>
+            <div class="gallery-item" onclick="galleryReaction(this, 'Творчество! 🎨')">
+                <span class="g-emoji">🎨</span>
+                <span class="g-text">Творчество</span>
+            </div>
+            <div class="gallery-item" onclick="galleryReaction(this, 'Мечты! 🌙')">
+                <span class="g-emoji">🌙</span>
+                <span class="g-text">Мечты</span>
+            </div>
+            <div class="gallery-item" onclick="galleryReaction(this, 'Любовь! 💖')">
+                <span class="g-emoji">💖</span>
+                <span class="g-text">Любовь</span>
+            </div>
         </div>
-        
-        <div class="message">
-            <p>Помни: как и в науке, в жизни нет невозможного - есть только задачи, которые ещё не решены!</p>
-            
-            <p>Пусть твой путь освещает свет знаний, а сердце наполняется теплом дружбы и любви!</p>
+
+        <!-- Интерактив с кликами -->
+        <div class="interactive-section">
+            <h2 style="font-size: 20px; color: #ff6b9d; margin-bottom: 10px;">💝 Нажми на сердечко! 💝</h2>
+            <p class="click-counter" id="clickCounter">Ты собрала 0 сердечек</p>
+            <button class="click-btn" onclick="addHeart()">❤️ Собрать сердечко</button>
         </div>
-        
-        <div class="science-quote">
-            "С 10 миллиардов процентов энтузиазмом желаю тебе всего наилучшего!"
+
+        <!-- Подвал -->
+        <div class="footer">
+            <span class="big-love">💕 С любовью, твои близкие 💕</span>
+            <p>Сделано с душой для самой лучшей девушки на свете — Лизы!</p>
+            <p class="countdown" id="countdown"></p>
         </div>
-        
-        <div class="signature">
-            С наилучшими пожеланиями,<br>
-             Даня
-        </div>
-        
-        <div class="decoration">🎂🔬⭐</div>
+
     </div>
+
+    <script>
+        // ========== ЗВЁЗДЫ ==========
+        (function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const count = 120;
+            let html = '';
+            for (let i = 0; i < count; i++) {
+                const size = Math.random() * 3 + 1;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 3;
+                const duration = Math.random() * 2 + 1.5;
+                html += `<div class="star" style="
+                    width:${size}px; height:${size}px;
+                    left:${x}%; top:${y}%;
+                    animation-delay:${delay}s;
+                    animation-duration:${duration}s;
+                "></div>`;
+            }
+            starsContainer.innerHTML = html;
+        })();
+
+        // ========== ШАРИКИ ==========
+        (function createBalloons() {
+            const emojis = ['🎈', '🎈', '🎈', '🎈', '🎈', '🎈', '🎈', '🎈'];
+            const colors = ['#ff6b9d', '#ffcc00', '#a855f7', '#00d4ff', '#ff6b9d', '#ffcc00', '#a855f7', '#00d4ff'];
+            let html = '';
+            for (let i = 0; i < 12; i++) {
+                const emoji = emojis[i % emojis.length];
+                const left = Math.random() * 95;
+                const delay = Math.random() * 8;
+                const duration = Math.random() * 6 + 6;
+                const size = Math.random() * 25 + 25;
+                html += `<div class="balloon" style="
+                    left:${left}%;
+                    animation-delay:${delay}s;
+                    animation-duration:${duration}s;
+                    font-size:${size}px;
+                ">${emoji}</div>`;
+            }
+            document.body.insertAdjacentHTML('beforeend', html);
+        })();
+
+        // ========== КОНФЕТТИ ==========
+        (function createConfetti() {
+            const colors = ['#ff6b9d', '#ffcc00', '#a855f7', '#00d4ff', '#ff6b9d', '#ffcc00', '#a855f7'];
+            let html = '';
+            for (let i = 0; i < 40; i++) {
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const left = Math.random() * 100;
+                const delay = Math.random() * 10;
+                const duration = Math.random() * 5 + 5;
+                const size = Math.random() * 8 + 5;
+                const shape = Math.random() > 0.5 ? '50%' : '2px';
+                html += `<div class="confetti" style="
+                    left:${left}%;
+                    width:${size}px; height:${size}px;
+                    background:${color};
+                    border-radius:${shape};
+                    animation-delay:${delay}s;
+                    animation-duration:${duration}s;
+                "></div>`;
+            }
+            document.body.insertAdjacentHTML('beforeend', html);
+        })();
+
+        // ========== СВЕЧИ ==========
+        const totalCandles = 16;
+        let blownCount = 0;
+        const candlesContainer = document.getElementById('candles');
+        const progressBar = document.getElementById('progressBar');
+        const allBlownEl = document.getElementById('allBlown');
+
+        function initCandles() {
+            let html = '';
+            for (let i = 0; i < totalCandles; i++) {
+                html += `<span class="candle" data-index="${i}" onclick="blowCandle(this)">🔥</span>`;
+            }
+            candlesContainer.innerHTML = html;
+        }
+        initCandles();
+
+        function blowCandle(el) {
+            if (el.classList.contains('blown')) return;
+
+            el.classList.add('blown');
+            el.textContent = '💨';
+            blownCount++;
+
+            const percent = (blownCount / totalCandles) * 100;
+            progressBar.style.width = percent + '%';
+
+            // Небольшая вибрация (если поддерживается)
+            if (navigator.vibrate) {
+                navigator.vibrate(30);
+            }
+
+            // Звуковой эффект через Web Audio API
+            playBlowSound();
+
+            if (blownCount === totalCandles) {
+                allBlownEl.textContent = '🎉 Ура! Все свечи задуты! Загадывай желание! 🎉';
+                allBlownEl.classList.add('visible');
+                triggerFlash();
+                launchConfettiBurst();
+            }
+        }
+
+        // ========== ЗВУК ЗАДУВАНИЯ (Web Audio API) ==========
+        function playBlowSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(300, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.2);
+                gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+                osc.start(ctx.currentTime);
+                osc.stop(ctx.currentTime + 0.3);
+            } catch (e) {
+                // Тихий игнор при ошибке
+            }
+        }
+
+        // ========== ВСПЫШКА ==========
+        function triggerFlash() {
+            const flash = document.getElementById('flash');
+            flash.classList.add('active');
+            setTimeout(() => flash.classList.remove('active'), 200);
+        }
+
+        // ========== ВЗРЫВ КОНФЕТТИ ПРИ ВСЕХ СВЕЧАХ ==========
+        function launchConfettiBurst() {
+            const colors = ['#ff6b9d', '#ffcc00', '#a855f7', '#00d4ff', '#ff3366', '#ffcc00'];
+            for (let i = 0; i < 60; i++) {
+                const conf = document.createElement('div');
+                conf.className = 'confetti';
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const size = Math.random() * 10 + 5;
+                conf.style.cssText = `
+                    left: ${Math.random() * 100}%;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: ${color};
+                    border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+                    animation-duration: ${Math.random() * 2 + 1.5}s;
+                    animation-delay: ${Math.random() * 0.5}s;
+                    position: fixed;
+                    top: -20px;
+                    z-index: 100;
+                    pointer-events: none;
+                `;
+                document.body.appendChild(conf);
+                setTimeout(() => conf.remove(), 4000);
+            }
+        }
+
+        // ========== СЮРПРИЗ ==========
+        function revealSurprise() {
+            const hidden = document.getElementById('hiddenMessage');
+            const btn = document.getElementById('surpriseBtn');
+
+            if (hidden.classList.contains('show')) {
+                hidden.classList.remove('show');
+                btn.textContent = '🎁 Открыть сюрприз 🎁';
+                return;
+            }
+
+            hidden.classList.add('show');
+            btn.textContent = '🎈 Закрыть сюрприз 🎈';
+            triggerFlash();
+
+            // Прокрутка к сюрпризу
+            setTimeout(() => {
+                hidden.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 200);
+
+            // Конфетти
+            launchConfettiBurst();
+            playCelebrationSound();
+        }
+
+        // ========== ЗВУК ПРАЗДНИКА ==========
+        function playCelebrationSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const notes = [523.25, 587.33, 659.25, 783.99, 659.25, 783.99]; // C5 D5 E5 G5 E5 G5
+                notes.forEach((freq, i) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.type = 'triangle';
+                    osc.frequency.value = freq;
+                    const start = ctx.currentTime + i * 0.12;
+                    gain.gain.setValueAtTime(0, start);
+                    gain.gain.linearRampToValueAtTime(0.12, start + 0.02);
+                    gain.gain.exponentialRampToValueAtTime(0.001, start + 0.3);
+                    osc.start(start);
+                    osc.stop(start + 0.35);
+                });
+            } catch (e) {}
+        }
+
+        // ========== КЛИКИ С СЕРДЕЧКАМИ ==========
+        let heartCount = 0;
+        const clickCounter = document.getElementById('clickCounter');
+
+        function addHeart() {
+            heartCount++;
+            clickCounter.textContent = `Ты собрала ${heartCount} ${getHeartWord(heartCount)}`;
+
+            // Анимация пульсации
+            clickCounter.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                clickCounter.style.transform = 'scale(1)';
+            }, 200);
+
+            // Маленькое сердечко вылетает
+            const heart = document.createElement('div');
+            heart.textContent = '❤️';
+            heart.style.cssText = `
+                position: fixed;
+                font-size: 24px;
+                pointer-events: none;
+                z-index: 999;
+                left: ${Math.random() * 80 + 10}%;
+                top: ${Math.random() * 60 + 20}%;
+                animation: heartFloat 1.5s ease-out forwards;
+            `;
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 1500);
+
+            // Добавляем стиль для анимации, если ещё нет
+            if (!document.getElementById('heartFloatStyle')) {
+                const style = document.createElement('style');
+                style.id = 'heartFloatStyle';
+                style.textContent = `
+                    @keyframes heartFloat {
+                        0% { opacity: 1; transform: translateY(0) scale(1); }
+                        100% { opacity: 0; transform: translateY(-150px) scale(1.5); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            // Звук
+            if (navigator.vibrate) navigator.vibrate(15);
+        }
+
+        function getHeartWord(n) {
+            if (n % 10 === 1 && n % 100 !== 11) return 'сердечко';
+            if (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) return 'сердечка';
+            return 'сердечек';
+        }
+
+        // ========== ГАЛЕРЕЯ РЕАКЦИЙ ==========
+        function galleryReaction(el, text) {
+            // Создаём всплывающий текст
+            const popup = document.createElement('div');
+            popup.textContent = text;
+            popup.style.cssText = `
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(168, 85, 247, 0.95);
+                color: #fff;
+                padding: 15px 30px;
+                border-radius: 50px;
+                font-size: 20px;
+                font-weight: 700;
+                z-index: 9999;
+                box-shadow: 0 10px 40px rgba(255, 107, 157, 0.6);
+                animation: popupAnim 1.2s ease forwards;
+                pointer-events: none;
+            `;
+            document.body.appendChild(popup);
+            setTimeout(() => popup.remove(), 1200);
+
+            if (!document.getElementById('popupStyle')) {
+                const style = document.createElement('style');
+                style.id = 'popupStyle';
+                style.textContent = `
+                    @keyframes popupAnim {
+                        0% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+                        20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+                        40% { transform: translate(-50%, -50%) scale(1); }
+                        80% { opacity: 1; }
+                        100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            if (navigator.vibrate) navigator.vibrate([20, 30, 20]);
+        }
+
+        // ========== ПОЖЕЛАНИЯ КАРТОЧКИ ==========
+        function showWish(el) {
+            const title = el.querySelector('.wish-title').textContent;
+            const emoji = el.querySelector('.emoji').textContent;
+
+            // Всплывающая анимация
+            const popup = document.createElement('div');
+            popup.textContent = emoji + ' ' + title;
+            popup.style.cssText = `
+                position: fixed;
+                left: 50%;
+                top: 40%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #ff6b9d, #a855f7);
+                color: #fff;
+                padding: 20px 40px;
+                border-radius: 60px;
+                font-size: 22px;
+                font-weight: 700;
+                z-index: 9999;
+                box-shadow: 0 15px 50px rgba(255, 107, 157, 0.7);
+                animation: wishPopup 1.5s ease forwards;
+                pointer-events: none;
+                white-space: nowrap;
+            `;
+            document.body.appendChild(popup);
+            setTimeout(() => popup.remove(), 1500);
+
+            if (!document.getElementById('wishPopupStyle')) {
+                const style = document.createElement('style');
+                style.id = 'wishPopupStyle';
+                style.textContent = `
+                    @keyframes wishPopup {
+                        0% { opacity: 0; transform: translate(-50%, -50%) scale(0.2) rotate(-10deg); }
+                        20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1) rotate(2deg); }
+                        40% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+                        80% { opacity: 1; }
+                        100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            playPopSound();
+        }
+
+        // ========== ЗВУК ПОП ==========
+        function playPopSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(900, ctx.currentTime + 0.08);
+                gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+                osc.start(ctx.currentTime);
+                osc.stop(ctx.currentTime + 0.15);
+            } catch (e) {}
+        }
+
+        // ========== ТАЙМЕР ОБРАТНОГО ОТСЧЁТА ДО КОНЦА ДНЯ ==========
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date(now);
+            endOfDay.setHours(23, 59, 59, 999);
+
+            const diff = endOfDay - now;
+            if (diff <= 0) {
+                document.getElementById('countdown').textContent = '🎉 Праздник продолжается! 🎉';
+                return;
+            }
+
+            const hours = Math.floor(diff / 3600000);
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+
+            document.getElementById('countdown').textContent =
+                `⏳ До конца этого волшебного дня: ${hours} ч ${minutes} мин ${seconds} сек`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ========== ДОПОЛНИТЕЛЬНОЕ КОНФЕТТИ ПРИ ЗАГРУЗКЕ ==========
+        window.addEventListener('load', function() {
+            setTimeout(launchConfettiBurst, 500);
+        });
+
+        // ========== ЗАЩИТА ОТ КОПИРОВАНИЯ? НЕТ, ДЕЛАЕМ ДОБРО! ==========
+        console.log('🎉 С Днём Рождения, Лиза! 🎉');
+        console.log('💖 Сделано с любовью 💖');
+
+    </script>
 </body>
 </html>
+```
